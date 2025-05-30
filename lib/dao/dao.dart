@@ -10,8 +10,8 @@ abstract class CartDao{
   @Query('SELECT * FROM CART WHERE uid:uid ')
   Stream<List<cart>> getAllItemCartByUid(String uid);
 
-@Query('SELECT * FROM CART WHERE uid:uid ')
-  Stream<List<cart>> getAllItemCartByUid(String uid);
+@Query('SELECT * FROM CART WHERE uid:uid AND id:id')
+  Stream<List<cart>> getItemCartByUid(String uid,id);
 
 
   
