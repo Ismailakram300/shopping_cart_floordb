@@ -3,7 +3,7 @@
 import 'package:floor/floor.dart';
 
 @entity
-class cart {
+class Cart {
   @primaryKey
   final int? id;
 
@@ -14,7 +14,7 @@ class cart {
   String? oldPrice;
   String? price;
 
-  cart({this.uid, this.id, this.name, this.category, this.imageUrl, this.oldPrice,
+  Cart({this.uid, this.id, this.name, this.category, this.imageUrl, this.oldPrice,
     this.price});
 
 
