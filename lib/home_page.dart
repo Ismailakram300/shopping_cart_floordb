@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(appBar: AppBar(title: Text(""))
+      home: Scaffold(appBar: AppBar(title: Text("HomePage"))
       
       ///body: FutureBuilder(future: readJSONDatabase(), builder: builder),
       
