@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shopping_cart_floordb/dao/dao.dart';
+import 'package:shopping_cart_floordb/model/Product.dart';
+import 'package:flutter/services.dart' as rootBundle;
 
 class MyHomePage extends StatefulWidget {
   final CartDao dao;
@@ -16,13 +21,22 @@ class _MyHomePageState extends State<MyHomePage> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(appBar: AppBar(title: Text("HomePage"))
+      home: Scaffold(appBar: AppBar(title: Text("HomePage")),
 
-      ///body: FutureBuilder(future: readJSONDatabase(), builder: builder),
+      body: FutureBuilder(
+          future: readJsonDatabase(),
+        builder: (context, snapshot){
+            return Text(widget.dao.getAllItemCartByUid('1').toString());
+        }),
 
 
       ),
 
     );
+  }
+  Future<List<Product>> readJsonDatabase() async{
+    final raw_bundle =await rootBundle.rootBundle.loadString('assets/data/my_product_json.json');
+    final list = json.decode(raw_bundle) as List<dynamic>;
+    return list.map((model)=> Product.fromJson(model)).toList();
   }
 }
