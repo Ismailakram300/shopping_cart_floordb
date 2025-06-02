@@ -26,8 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: FutureBuilder(
           future: readJsonDatabase(),
         builder: (context, snapshot){
-            return Text(widget.dao.getAllItemCartByUid('1').toString());
-        }),
+if(snapsh        }),
 
 
       ),
